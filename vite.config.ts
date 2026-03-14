@@ -12,6 +12,7 @@ export default defineConfig(async ({ mode }) => {
   }
 
   return {
+    assetsInclude: ["**/*.JPG", "**/*.JPEG", "**/*.PNG"],
     server: {
       host: "::",
       port: 8080,
