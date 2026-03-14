@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import mashLogo from "@/assets/mash_logo.svg";
-
-const navItems = ["PROGRAMME", "ARCHIVE", "ABOUT", "CONTACT"];
+import { NAV_ITEMS } from "@/data/mash";
 
 const SiteHeader = () => {
   return (
@@ -25,22 +24,22 @@ const SiteHeader = () => {
 
         {/* Nav */}
         <nav className="col-span-6 border-r border-grid flex items-center">
-          {navItems.map((item, i) => (
+          {NAV_ITEMS.map((item, i) => (
             <motion.a
-              key={item}
-              href="#"
+              key={item.label}
+              href={item.href}
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 * i, duration: 0.5 }}
               whileHover={{ backgroundColor: "hsl(196, 61%, 37%)", color: "hsl(0, 0%, 100%)" }}
               className="font-display text-[10px] uppercase tracking-widest px-4 py-3 border-r border-grid h-full flex items-center transition-colors duration-200"
             >
-              {item}
+              {item.label}
             </motion.a>
           ))}
         </nav>
 
-        {/* Live indicator */}
+        {/* Status */}
         <div className="col-span-3 flex items-center justify-end p-3 gap-2">
           <motion.span
             animate={{ scale: [1, 1.5, 1], opacity: [1, 0.5, 1] }}
@@ -48,7 +47,7 @@ const SiteHeader = () => {
             className="inline-block w-2.5 h-2.5 bg-signal rounded-full glow-signal"
           />
           <span className="font-display text-[10px] uppercase tracking-widest text-signal">
-            LIVE
+            MASH ONLINE
           </span>
         </div>
       </div>

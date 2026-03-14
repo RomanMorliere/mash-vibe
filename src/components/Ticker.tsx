@@ -1,13 +1,5 @@
 import { motion } from "framer-motion";
-
-const TICKER_ITEMS = [
-  "TRANSMISSION 042 — LIVE FROM THE ARCHIVE",
-  "NEXT EVENT: 22.03.2026 — WAREHOUSE SESSION",
-  "NEW RESIDENCY: DJ KALINE × MASH",
-  "OPEN CALL FOR ARTISTS — DEADLINE 01.04.2026",
-  "RADIO BROADCAST EVERY FRIDAY 22H-02H",
-  "MASH COLLECTIVE — CULTURE IS THE SIGNAL",
-];
+import { TICKER_ITEMS } from "@/data/mash";
 
 const Ticker = () => {
   return (

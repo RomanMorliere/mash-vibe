@@ -1,18 +1,11 @@
 import { motion } from "framer-motion";
-import heroImg from "@/assets/broadcast-01.jpg";
+import { CONTACT, HERO, UPCOMING } from "@/data/mash";
 
 const TRANSITION = { duration: 0.8, ease: [0.19, 1, 0.22, 1] as const };
 
-const events = [
-  { date: "22.03", title: "WAREHOUSE SESSION VOL.8", tag: "TECHNO" },
-  { date: "29.03", title: "OPEN MIC × MASH", tag: "HIP-HOP" },
-  { date: "05.04", title: "ART BRUT EXPOSITION", tag: "VISUAL" },
-  { date: "12.04", title: "FREQUENCY NIGHTS", tag: "ELECTRONIC" },
-];
-
 const HeroSection = () => {
   return (
-    <div className="grid grid-cols-12 border-b border-grid">
+    <section id="home" className="grid grid-cols-12 border-b border-grid">
       {/* Main hero */}
       <motion.div
         initial={{ opacity: 0, scale: 1.05 }}
@@ -27,14 +20,14 @@ const HeroSection = () => {
             className="inline-block w-2.5 h-2.5 bg-signal rounded-full glow-signal"
           />
           <span className="font-display text-[10px] uppercase tracking-widest text-signal">
-            LIVE NOW
+            MASH
           </span>
         </div>
         <motion.img
           whileHover={{ scale: 1.06 }}
           transition={TRANSITION}
-          src={heroImg}
-          alt="Live broadcast"
+          src={HERO.image}
+          alt={HERO.imageAlt}
           className="w-full h-full object-cover transition-all duration-700 aspect-[16/7]"
         />
         {/* Color overlay on hover */}
@@ -48,11 +41,14 @@ const HeroSection = () => {
           className="absolute bottom-0 left-0 right-0 p-5"
         >
           <p className="font-display text-[10px] uppercase tracking-widest text-accent mb-1">
-            TRANSMISSION 042
+            {HERO.code}
           </p>
           <h2 className="font-display text-5xl uppercase tracking-tighter leading-none text-gradient">
-            LIVE FROM THE ARCHIVE
+            {HERO.title}
           </h2>
+          <p className="mt-3 max-w-xl font-body text-sm text-white/80">
+            {HERO.subtitle}
+          </p>
         </motion.div>
       </motion.div>
 
@@ -60,10 +56,10 @@ const HeroSection = () => {
       <div className="col-span-4 flex flex-col">
         <div className="border-b border-grid p-4 flex-1">
           <p className="font-display text-[10px] uppercase tracking-widest text-muted-foreground mb-3">
-            PROCHAINS EVENTS
+            UPCOMING MASH DATES
           </p>
           <ul className="space-y-3">
-            {events.map((evt, i) => (
+            {UPCOMING.map((evt, i) => (
               <motion.li
                 key={evt.date}
                 initial={{ x: 30, opacity: 0 }}
@@ -96,30 +92,34 @@ const HeroSection = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
           className="p-4"
+          id="contact"
         >
           <p className="font-display text-[10px] uppercase tracking-widest text-muted-foreground mb-2">
-            NEWSLETTER
+            CONTACT SIGNAL
           </p>
           <p className="font-body text-xs text-muted-foreground mb-3">
-            Reçois le signal directement.
+            {CONTACT.email}
           </p>
-          <div className="flex">
-            <input
-              type="email"
-              placeholder="EMAIL"
-              className="flex-1 bg-muted border border-grid px-3 py-2 font-display text-[10px] uppercase tracking-widest text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary focus:glow-primary transition-shadow duration-300"
-            />
+          <div className="flex items-stretch">
+            <a
+              href={CONTACT.instagramUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="flex-1 bg-muted border border-grid px-3 py-2 font-display text-[10px] uppercase tracking-widest text-foreground transition-shadow duration-300 flex items-center"
+            >
+              {CONTACT.instagram}
+            </a>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="bg-signal text-signal-foreground px-4 py-2 font-display text-[10px] uppercase tracking-widest hover:bg-primary glow-signal hover:glow-primary transition-all duration-300"
             >
-              [ OK ]
+              [ OPEN ]
             </motion.button>
           </div>
         </motion.div>
       </div>
-    </div>
+    </section>
   );
 };
 
