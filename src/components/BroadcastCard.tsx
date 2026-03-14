@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-const TRANSITION = { duration: 0.4, ease: [0.19, 1, 0.22, 1] };
+const TRANSITION = { duration: 0.4, ease: [0.19, 1, 0.22, 1] as const };
 
 interface BroadcastCardProps {
   title: string;

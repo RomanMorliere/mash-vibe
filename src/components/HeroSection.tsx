@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import heroImg from "@/assets/broadcast-01.jpg";
 
-const TRANSITION = { duration: 0.6, ease: [0.19, 1, 0.22, 1] };
+const TRANSITION = { duration: 0.6, ease: [0.19, 1, 0.22, 1] as const };
 
 const HeroSection = () => {
   return (
